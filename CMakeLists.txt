@@ -14,6 +14,7 @@ enable_testing()
 add_library(meshmerize_core
     src/maze/graph.cpp
     src/maze/maze_map.cpp
+    src/simulator/virtual_robot.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -72,4 +73,23 @@ add_test(
 add_test(
     NAME test_maze
     COMMAND test_maze
+)
+
+add_executable(test_virtual_robot
+    tests/test_virtual_robot.cpp
+)
+
+target_link_libraries(test_virtual_robot
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_virtual_robot
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_virtual_robot
+    COMMAND test_virtual_robot
 )
