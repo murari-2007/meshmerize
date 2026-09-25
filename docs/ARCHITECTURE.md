@@ -43,3 +43,19 @@ The following components are isolated behind hardware interfaces:
 ## Simulation
 
 The project contains a simulation backend that uses the same core interfaces as the eventual ESP32 implementation.
+
+## Build System
+
+The project uses CMake as the underlying build system.
+
+A Makefile provides convenient development commands.
+
+Common commands:
+
+    make build
+    make run
+    make test
+    make debug
+    make clean
+    make rebuild
+    make help

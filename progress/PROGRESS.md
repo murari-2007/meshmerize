@@ -19,11 +19,18 @@ Status: IN_PROGRESS
 - [x] Create directory structure
 - [x] Create CMakeLists.txt
 - [x] Create initial main.cpp
-- [ ] Configure CMake
-- [ ] Build project
-- [ ] Run executable
-- [ ] Create initial documentation
-- [ ] Commit Phase 1
+- [X] Configure CMake
+- [X] Build project
+- [X] Run executable
+- [X] Create initial documentation
+- [X] Commit Phase 1
+- [x] Create Makefile
+- [x] Add build command
+- [x] Add run command
+- [x] Add debug command
+- [x] Add test command
+- [x] Add clean command
+- [x] Add rebuild command
 
 ## Current Checkpoint
 
