@@ -11,8 +11,23 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_testing()
 
+add_library(meshmerize_core
+    src/maze/graph.cpp
+    src/maze/maze_map.cpp
+)
+
+target_include_directories(meshmerize_core
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/include
+)
+
 add_executable(meshmerize
     src/main.cpp
+)
+
+target_link_libraries(meshmerize
+    PRIVATE
+        meshmerize_core
 )
 
 target_include_directories(meshmerize
@@ -24,12 +39,37 @@ add_executable(test_core
     tests/test_core.cpp
 )
 
+target_link_libraries(test_core
+    PRIVATE
+        meshmerize_core
+)
+
 target_include_directories(test_core
     PRIVATE
         ${PROJECT_SOURCE_DIR}/include
 )
 
+add_executable(test_maze
+    tests/test_maze.cpp
+)
+
+target_link_libraries(test_maze
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_maze
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+
+)
+
 add_test(
     NAME test_core
     COMMAND test_core
+)
+
+add_test(
+    NAME test_maze
+    COMMAND test_maze
 )

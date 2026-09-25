@@ -10,7 +10,7 @@ Current phase: Phase 1
 
 # Phase 1 — C++ Project + Build System
 
-Status: IN_PROGRESS
+Status: COMPLETED
 
 ## Tasks
 
@@ -43,3 +43,32 @@ Verify the CMake configuration and build.
 ## Known Issues
 
 None.
+
+## Phase 2 — Core Data Types + Robot State
+Status: COMPLETED
+
+## Phase 2 Tasks
+
+- [x] Create Direction
+- [x] Create RelativeDirection
+- [x] Create RobotMode
+- [x] Create Action
+- [x] Create RobotState
+- [x] Create PIDConfig
+- [x] Create RobotConfig
+- [x] Create Route
+- [x] Add core unit test
+- [x] Build successfully
+- [x] All tests pass
+- [x] Commit Phase 2
+
+Phase 3 — Virtual Maze
+Status: COMPLETE
+
+Implemented:
+- Node
+- Edge
+- Graph
+- MazeMap
+- meshmerize_core library
+- Maze graph unit tests
