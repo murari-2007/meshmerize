@@ -29,6 +29,7 @@ add_library(meshmerize_core
     src/planning/bfs.cpp
     src/planning/dijkstra.cpp
     src/planning/path_optimizer.cpp
+    src/planning/route_builder.cpp
     src/control/turn_controller.cpp
     src/execution/route_executor.cpp
     src/execution/recovery.cpp
@@ -508,4 +509,25 @@ target_include_directories(
 add_test(
     NAME test_phase24_dry_run_exploration
     COMMAND test_phase24_dry_run_exploration
+)
+
+add_executable(test_phase25_route_builder
+    tests/test_phase25_route_builder.cpp
+)
+
+target_link_libraries(
+    test_phase25_route_builder
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase25_route_builder
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase25_route_builder
+    COMMAND test_phase25_route_builder
 )
