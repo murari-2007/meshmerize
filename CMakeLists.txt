@@ -26,6 +26,7 @@ add_library(meshmerize_core
     src/exploration/exploration_state.cpp
     src/exploration/explorer.cpp
     src/perception/end_detector.cpp
+    src/planning/bfs.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -270,4 +271,25 @@ target_link_libraries(
 add_test(
     NAME test_end_detector
     COMMAND test_end_detector
+)
+
+add_executable(test_bfs
+    tests/test_bfs.cpp
+)
+
+target_link_libraries(
+    test_bfs
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_bfs
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_bfs
+    COMMAND test_bfs
 )
