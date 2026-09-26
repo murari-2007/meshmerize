@@ -14,6 +14,7 @@ enable_testing()
 add_library(meshmerize_core
     src/maze/graph.cpp
     src/maze/maze_map.cpp
+    src/perception/sensor_filter.cpp
     src/simulator/virtual_robot.cpp
     src/simulator/virtual_sensor.cpp
 )
@@ -112,4 +113,23 @@ target_include_directories(test_sensors
 add_test(
     NAME test_sensors
     COMMAND test_sensors
+)
+
+add_executable(test_sensor_filter
+    tests/test_sensor_filter.cpp
+)
+
+target_link_libraries(test_sensor_filter
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_sensor_filter
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_sensor_filter
+    COMMAND test_sensor_filter
 )
