@@ -28,6 +28,7 @@ add_library(meshmerize_core
     src/perception/end_detector.cpp
     src/planning/bfs.cpp
     src/planning/dijkstra.cpp
+    src/planning/path_optimizer.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -314,4 +315,25 @@ target_include_directories(
 add_test(
     NAME test_dijkstra
     COMMAND test_dijkstra
+)
+
+add_executable(test_path_optimizer
+    tests/test_path_optimizer.cpp
+)
+
+target_link_libraries(
+    test_path_optimizer
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_path_optimizer
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_path_optimizer
+    COMMAND test_path_optimizer
 )
