@@ -16,6 +16,7 @@ add_library(meshmerize_core
     src/maze/maze_map.cpp
     src/perception/sensor_filter.cpp
     src/perception/line_position.cpp
+    src/control/pid.cpp
     src/simulator/virtual_robot.cpp
     src/simulator/virtual_sensor.cpp
 )
@@ -152,4 +153,23 @@ target_include_directories(test_line_position
 add_test(
     NAME test_line_position
     COMMAND test_line_position
+)
+
+add_executable(test_pid
+    tests/test_pid.cpp
+)
+
+target_link_libraries(test_pid
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_pid
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_pid
+    COMMAND test_pid
 )
