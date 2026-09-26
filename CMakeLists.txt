@@ -30,6 +30,7 @@ add_library(meshmerize_core
     src/planning/dijkstra.cpp
     src/planning/path_optimizer.cpp
     src/control/turn_controller.cpp
+    src/execution/route_executor.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -358,4 +359,25 @@ target_include_directories(
 add_test(
     NAME test_turn_controller
     COMMAND test_turn_controller
+)
+
+add_executable(test_route_executor
+    tests/test_route_executor.cpp
+)
+
+target_link_libraries(
+    test_route_executor
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_route_executor
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_route_executor
+    COMMAND test_route_executor
 )
