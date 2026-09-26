@@ -21,6 +21,8 @@ public:
 
     bool turnAround();
 
+    bool hasConnectionInDirection(Direction direction) const;
+
 private:
     MazeMap& maze_;
     RobotState state_;

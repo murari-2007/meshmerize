@@ -445,3 +445,24 @@ add_test(
     NAME test_phase21_stress
     COMMAND test_phase21_stress
 )
+
+add_executable(test_phase22_virtual_junctions
+    tests/test_phase22_virtual_junctions.cpp
+)
+
+target_link_libraries(
+    test_phase22_virtual_junctions
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase22_virtual_junctions
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase22_virtual_junctions
+    COMMAND test_phase22_virtual_junctions
+)

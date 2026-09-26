@@ -91,6 +91,13 @@ int VirtualRobot::findNeighborInDirection(Direction direction) const
     return -1;
 }
 
+bool VirtualRobot::hasConnectionInDirection(
+    Direction direction
+) const
+{
+    return findNeighborInDirection(direction) != -1;
+}
+
 bool VirtualRobot::moveForward(double distance)
 {
     if (distance <= 0.0) {
