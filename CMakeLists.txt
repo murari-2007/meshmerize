@@ -20,6 +20,7 @@ add_library(meshmerize_core
     src/simulator/virtual_robot.cpp
     src/simulator/virtual_sensor.cpp
     src/perception/junction_detector.cpp
+    src/robot/orientation.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -192,4 +193,23 @@ target_include_directories(test_junction
 add_test(
     NAME test_junction
     COMMAND test_junction
+)
+
+add_executable(test_orientation
+    tests/test_orientation.cpp
+)
+
+target_link_libraries(test_orientation
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_orientation
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_orientation
+    COMMAND test_orientation
 )
