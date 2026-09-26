@@ -18,6 +18,12 @@ public:
 
     const Node* getNode(int node_id) const;
 
+    const Edge* getEdge(int from, int to) const;
+
+    bool containsEdge(int from, int to) const;
+
+    bool markEdgeExplored(int from, int to);
+
     const std::vector<Node>& nodes() const;
 
     const std::vector<Edge>& edges() const;

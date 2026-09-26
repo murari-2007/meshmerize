@@ -21,6 +21,7 @@ add_library(meshmerize_core
     src/simulator/virtual_sensor.cpp
     src/perception/junction_detector.cpp
     src/robot/orientation.cpp
+    src/maze/maze_builder.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -212,4 +213,23 @@ target_include_directories(test_orientation
 add_test(
     NAME test_orientation
     COMMAND test_orientation
+)
+
+add_executable(test_maze_builder
+    tests/test_maze_builder.cpp
+)
+
+target_link_libraries(test_maze_builder
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_maze_builder
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_maze_builder
+    COMMAND test_maze_builder
 )

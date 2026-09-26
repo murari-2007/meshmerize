@@ -14,7 +14,12 @@ bool Graph::addNode(const Node& node)
 
 bool Graph::addEdge(const Edge& edge)
 {
-    if (!containsNode(edge.from) || !containsNode(edge.to)) {
+    if (!containsNode(edge.from) ||
+        !containsNode(edge.to)) {
+        return false;
+    }
+
+    if (containsEdge(edge.from, edge.to)) {
         return false;
     }
 
@@ -42,6 +47,23 @@ const Node* Graph::getNode(int node_id) const
     }
 
     return nullptr;
+}
+
+const Edge* Graph::getEdge(int from, int to) const
+{
+    for (const Edge& edge : edges_) {
+        if ((edge.from == from && edge.to == to) ||
+            (edge.from == to && edge.to == from)) {
+            return &edge;
+        }
+    }
+
+    return nullptr;
+}
+
+bool Graph::containsEdge(int from, int to) const
+{
+    return getEdge(from, to) != nullptr;
 }
 
 const std::vector<Node>& Graph::nodes() const
@@ -78,6 +100,19 @@ std::size_t Graph::nodeCount() const
 std::size_t Graph::edgeCount() const
 {
     return edges_.size();
+}
+
+bool Graph::markEdgeExplored(int from, int to)
+{
+    for (Edge& edge : edges_) {
+        if ((edge.from == from && edge.to == to) ||
+            (edge.from == to && edge.to == from)) {
+            edge.explored = true;
+            return true;
+        }
+    }
+
+    return false;
 }
 
 } // namespace meshmerize
