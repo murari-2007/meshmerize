@@ -24,21 +24,8 @@ VirtualSensor::VirtualSensor(const VirtualRobot& robot)
 
 LineSensorReading VirtualSensor::read()
 {
-    const RobotState& state = robot_.state();
-
-    /*
-     * The end node is represented by a wide white area.
-     */
-    if (state.node_id >= 0 &&
-        robot_.hasConnectionInDirection(state.direction) == false) {
-        /*
-         * Do not classify every dead end as an end zone.
-         *
-         * Phase 22 only models the physical end zone through
-         * the maze's end node in a later refinement.
-         *
-         * For now, return the normal line.
-         */
+    if (robot_.isAtEndNode()) {
+        return createEndZoneReading();
     }
 
     const bool left =

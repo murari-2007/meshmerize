@@ -466,3 +466,24 @@ add_test(
     NAME test_phase22_virtual_junctions
     COMMAND test_phase22_virtual_junctions
 )
+
+add_executable(test_phase23_end_zone_simulation
+    tests/test_phase23_end_zone_simulation.cpp
+)
+
+target_link_libraries(
+    test_phase23_end_zone_simulation
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase23_end_zone_simulation
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase23_end_zone_simulation
+    COMMAND test_phase23_end_zone_simulation
+)

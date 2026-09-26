@@ -23,6 +23,8 @@ public:
 
     bool hasConnectionInDirection(Direction direction) const;
 
+    bool isAtEndNode() const;
+
 private:
     MazeMap& maze_;
     RobotState state_;

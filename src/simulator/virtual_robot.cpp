@@ -98,6 +98,11 @@ bool VirtualRobot::hasConnectionInDirection(
     return findNeighborInDirection(direction) != -1;
 }
 
+bool VirtualRobot::isAtEndNode() const
+{
+    return state_.node_id == maze_.endNode();
+}
+
 bool VirtualRobot::moveForward(double distance)
 {
     if (distance <= 0.0) {
