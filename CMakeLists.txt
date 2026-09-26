@@ -424,3 +424,24 @@ add_test(
     NAME test_full_simulation
     COMMAND test_full_simulation
 )
+
+add_executable(test_phase21_stress
+    tests/test_phase21_stress.cpp
+)
+
+target_link_libraries(
+    test_phase21_stress
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase21_stress
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase21_stress
+    COMMAND test_phase21_stress
+)

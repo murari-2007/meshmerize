@@ -39,11 +39,21 @@ void RecoveryManager::reportTurnFailed()
 
 void RecoveryManager::reportEncoderError()
 {
+    if (state_ == RecoveryState::EndDetected ||
+        state_ == RecoveryState::Fault) {
+        return;
+    }
+
     state_ = RecoveryState::EncoderError;
 }
 
 void RecoveryManager::reportTimeout()
 {
+    if (state_ == RecoveryState::EndDetected ||
+        state_ == RecoveryState::Fault) {
+        return;
+    }
+
     state_ = RecoveryState::Timeout;
 }
 
