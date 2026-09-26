@@ -403,3 +403,24 @@ add_test(
     NAME test_recovery
     COMMAND test_recovery
 )
+
+add_executable(test_full_simulation
+    tests/test_full_simulation.cpp
+)
+
+target_link_libraries(
+    test_full_simulation
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_full_simulation
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_full_simulation
+    COMMAND test_full_simulation
+)
