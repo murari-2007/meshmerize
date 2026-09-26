@@ -15,6 +15,15 @@ enum class RouteExecutorState {
 
 struct RouteExecutorFeedback {
     TurnFeedback turn_feedback;
+
+    /*
+     * Forward motion is completed by the
+     * motion/line controller.
+     *
+     * The RouteExecutor only consumes the
+     * completion signal.
+     */
+    bool forward_complete = false;
 };
 
 class RouteExecutor {

@@ -81,13 +81,26 @@ void RouteExecutor::update(
     }
 
     if (state_ == RouteExecutorState::Forward) {
+
         /*
-         * Actual forward-motion completion will be
-         * connected to line/motion control later.
+         * Forward motion is controlled externally.
          *
-         * For Phase 18, forward is represented as
-         * an active state only.
+         * The executor advances only after the
+         * motion controller reports completion.
          */
+        if (!feedback.forward_complete) {
+            return;
+        }
+
+        ++current_action_index_;
+
+        if (current_action_index_ >= route_.size()) {
+            state_ = RouteExecutorState::Completed;
+            return;
+        }
+
+        startCurrentAction(feedback);
+
         return;
     }
 }

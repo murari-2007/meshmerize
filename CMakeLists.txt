@@ -531,3 +531,25 @@ add_test(
     NAME test_phase25_route_builder
     COMMAND test_phase25_route_builder
 )
+
+
+add_executable(test_phase26_full_route_simulation
+    tests/test_phase26_full_route_simulation.cpp
+)
+
+target_link_libraries(
+    test_phase26_full_route_simulation
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase26_full_route_simulation
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase26_full_route_simulation
+    COMMAND test_phase26_full_route_simulation
+)
