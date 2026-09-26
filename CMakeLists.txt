@@ -27,6 +27,7 @@ add_library(meshmerize_core
     src/exploration/explorer.cpp
     src/perception/end_detector.cpp
     src/planning/bfs.cpp
+    src/planning/dijkstra.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -292,4 +293,25 @@ target_include_directories(
 add_test(
     NAME test_bfs
     COMMAND test_bfs
+)
+
+add_executable(test_dijkstra
+    tests/test_dijkstra.cpp
+)
+
+target_link_libraries(
+    test_dijkstra
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_dijkstra
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_dijkstra
+    COMMAND test_dijkstra
 )
