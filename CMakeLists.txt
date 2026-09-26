@@ -15,6 +15,7 @@ add_library(meshmerize_core
     src/maze/graph.cpp
     src/maze/maze_map.cpp
     src/perception/sensor_filter.cpp
+    src/perception/line_position.cpp
     src/simulator/virtual_robot.cpp
     src/simulator/virtual_sensor.cpp
 )
@@ -132,4 +133,23 @@ target_include_directories(test_sensor_filter
 add_test(
     NAME test_sensor_filter
     COMMAND test_sensor_filter
+)
+
+add_executable(test_line_position
+    tests/test_line_position.cpp
+)
+
+target_link_libraries(test_line_position
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_line_position
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_line_position
+    COMMAND test_line_position
 )
