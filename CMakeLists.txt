@@ -19,6 +19,7 @@ add_library(meshmerize_core
     src/control/pid.cpp
     src/simulator/virtual_robot.cpp
     src/simulator/virtual_sensor.cpp
+    src/simulator/virtual_hardware.cpp
     src/perception/junction_detector.cpp
     src/robot/orientation.cpp
     src/maze/maze_builder.cpp
@@ -573,4 +574,25 @@ target_include_directories(
 add_test(
     NAME test_phase27_hardware_interfaces
     COMMAND test_phase27_hardware_interfaces
+)
+
+add_executable(test_phase28_simulator_hardware
+    tests/test_phase28_simulator_hardware.cpp
+)
+
+target_link_libraries(
+    test_phase28_simulator_hardware
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase28_simulator_hardware
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase28_simulator_hardware
+    COMMAND test_phase28_simulator_hardware
 )
