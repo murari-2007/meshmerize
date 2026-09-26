@@ -25,6 +25,7 @@ add_library(meshmerize_core
     src/exploration/junction_decision.cpp
     src/exploration/exploration_state.cpp
     src/exploration/explorer.cpp
+    src/perception/end_detector.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -254,4 +255,19 @@ target_include_directories(test_exploration
 add_test(
     NAME test_exploration
     COMMAND test_exploration
+)
+
+add_executable(test_end_detector
+    tests/test_end_detector.cpp
+)
+
+target_link_libraries(
+    test_end_detector
+    PRIVATE
+    meshmerize_core
+)
+
+add_test(
+    NAME test_end_detector
+    COMMAND test_end_detector
 )

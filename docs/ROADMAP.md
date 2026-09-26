@@ -61,6 +61,27 @@ Commit:
 `092ba2e Implement Phase 12 SLRB exploration`
 
 ## Phase 13 — End Detection
+Status: COMPLETED
+
+### Phase 13 Components
+
+- End-zone detector
+- Wide-white detection
+- Consecutive confirmation
+- Line-seen state
+- Detector reset
+- End-zone unit tests
+- Line-to-end-zone integration test
+
+### Phase 13 Validation
+
+- All tests pass
+- End detection requires three consecutive white readings
+- Detection state resets correctly
+- Detector requires the robot to have previously seen the line
+- Production implementation remains hardware-independent
+
+## Phase 14 — BFS Shortest Path
 Status: NOT_STARTED
 
 ## Phase 14 — BFS Shortest Path

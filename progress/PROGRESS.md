@@ -147,4 +147,57 @@ These belong to later phases.
 
 ## Next Phase
 
-Phase 13 — End Detection
+---
+
+# Phase 13 — End Detection
+
+Status: COMPLETED
+
+## Tasks
+
+- [x] Create EndZoneDetector
+- [x] Implement wide-white detection
+- [x] Implement line-seen state
+- [x] Implement consecutive confirmation
+- [x] Implement detector reset
+- [x] Add end detector tests
+- [x] Add line-to-end-zone integration test
+- [x] Build successfully
+- [x] All tests pass
+
+## Validation
+
+Test suite:
+
+12 / 12 tests passed
+
+End detection sequence verified:
+
+Line → White #1 → White #2 → White #3 → END
+
+## Design
+
+The detector does not assume a final physical sensor pattern.
+
+The current software uses:
+
+- Wide-white sensor condition
+- Previous line confirmation
+- Three consecutive confirmations
+
+Physical threshold tuning will be performed during real sensor integration.
+
+## Known Limitations
+
+- Physical sensor behavior has not yet been calibrated.
+- End-zone dimensions are not represented geometrically in software.
+- Dead-end versus end-zone behavior will require integration with the complete perception system.
+- Hardware integration is intentionally deferred.
+
+## Checkpoint
+
+Phase 13 implementation and integration tests completed.
+
+## Next Phase
+
+Phase 14 — BFS Shortest Path
