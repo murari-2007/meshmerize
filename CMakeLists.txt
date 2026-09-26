@@ -19,6 +19,7 @@ add_library(meshmerize_core
     src/control/pid.cpp
     src/simulator/virtual_robot.cpp
     src/simulator/virtual_sensor.cpp
+    src/perception/junction_detector.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -172,4 +173,23 @@ target_include_directories(test_pid
 add_test(
     NAME test_pid
     COMMAND test_pid
+)
+
+add_executable(test_junction
+    tests/test_junction.cpp
+)
+
+target_link_libraries(test_junction
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_junction
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_junction
+    COMMAND test_junction
 )
