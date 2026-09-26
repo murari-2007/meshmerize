@@ -1,40 +1,64 @@
 # Meshmerize Software Roadmap
 
 ## Phase 1 — C++ Project + Build System
-Status: IN_PROGRESS
+Status: COMPLETED
 
 ## Phase 2 — Core Data Types + Robot State
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 3 — Virtual Maze
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 4 — Virtual Robot + Movement
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 5 — Virtual Sensors
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 6 — Sensor Processing
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 7 — Line Position Calculation
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 8 — PID Line Controller
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 9 — Junction Detection
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 10 — Robot Orientation
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 11 — Maze Graph
-Status: NOT_STARTED
+Status: COMPLETED
 
 ## Phase 12 — Exploration Algorithm
-Status: NOT_STARTED
+Status: COMPLETED
+
+### Phase 12 Components
+
+- Junction decision engine
+- SLRB exploration policy
+- Exploration state
+- DFS-style exploration stack
+- Heading tracking
+- Branch entry
+- Backtracking
+- Exploration unit tests
+- Simulated exploration sequence test
+
+### Phase 12 Validation
+
+- All existing tests pass
+- Exploration tests pass
+- Simulated exploration sequence passes
+- Production code remains hardware-independent
+
+### Phase 12 Checkpoint
+
+Commit:
+`092ba2e Implement Phase 12 SLRB exploration`
 
 ## Phase 13 — End Detection
 Status: NOT_STARTED
