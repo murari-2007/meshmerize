@@ -32,6 +32,7 @@ add_library(meshmerize_core
     src/control/turn_controller.cpp
     src/execution/route_executor.cpp
     src/execution/recovery.cpp
+    src/exploration/exploration_trace.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -486,4 +487,25 @@ target_include_directories(
 add_test(
     NAME test_phase23_end_zone_simulation
     COMMAND test_phase23_end_zone_simulation
+)
+
+add_executable(test_phase24_dry_run_exploration
+    tests/test_phase24_dry_run_exploration.cpp
+)
+
+target_link_libraries(
+    test_phase24_dry_run_exploration
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase24_dry_run_exploration
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase24_dry_run_exploration
+    COMMAND test_phase24_dry_run_exploration
 )
