@@ -22,6 +22,9 @@ add_library(meshmerize_core
     src/perception/junction_detector.cpp
     src/robot/orientation.cpp
     src/maze/maze_builder.cpp
+    src/exploration/junction_decision.cpp
+    src/exploration/exploration_state.cpp
+    src/exploration/explorer.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -232,4 +235,23 @@ target_include_directories(test_maze_builder
 add_test(
     NAME test_maze_builder
     COMMAND test_maze_builder
+)
+
+add_executable(test_exploration
+    tests/test_exploration.cpp
+)
+
+target_link_libraries(test_exploration
+    PRIVATE
+        meshmerize_core
+)
+
+target_include_directories(test_exploration
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_exploration
+    COMMAND test_exploration
 )
