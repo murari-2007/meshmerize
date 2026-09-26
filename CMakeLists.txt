@@ -553,3 +553,24 @@ add_test(
     NAME test_phase26_full_route_simulation
     COMMAND test_phase26_full_route_simulation
 )
+
+add_executable(test_phase27_hardware_interfaces
+    tests/test_phase27_hardware_interfaces.cpp
+)
+
+target_link_libraries(
+    test_phase27_hardware_interfaces
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_phase27_hardware_interfaces
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_phase27_hardware_interfaces
+    COMMAND test_phase27_hardware_interfaces
+)
