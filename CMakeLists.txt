@@ -31,6 +31,7 @@ add_library(meshmerize_core
     src/planning/path_optimizer.cpp
     src/control/turn_controller.cpp
     src/execution/route_executor.cpp
+    src/execution/recovery.cpp
 )
 
 target_include_directories(meshmerize_core
@@ -380,4 +381,25 @@ target_include_directories(
 add_test(
     NAME test_route_executor
     COMMAND test_route_executor
+)
+
+add_executable(test_recovery
+    tests/test_recovery.cpp
+)
+
+target_link_libraries(
+    test_recovery
+    PRIVATE
+    meshmerize_core
+)
+
+target_include_directories(
+    test_recovery
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+add_test(
+    NAME test_recovery
+    COMMAND test_recovery
 )
